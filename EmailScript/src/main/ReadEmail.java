@@ -19,14 +19,17 @@ public class ReadEmail {
             inbox.open(Folder.READ_ONLY);
             Message msg = inbox.getMessage(inbox.getMessageCount());
             Address[] in = msg.getFrom();
-            for (Address address : in) {
-                System.out.println("FROM:" + address.toString());
-            }
             Multipart mp = (Multipart) msg.getContent();
             BodyPart bp = mp.getBodyPart(0);
-            System.out.println("SENT DATE:" + msg.getSentDate());
-            System.out.println("SUBJECT:" + msg.getSubject());
-            System.out.println("CONTENT:" + bp.getContent());
+            
+            String sender = in[0].toString();
+            String sentDate = msg.getSentDate().toString();
+            String subject = msg.getSubject();
+            String content = bp.getContent().toString();
+
+            Email email = new Email(sender, sentDate, subject, content);
+            System.out.println(email.toString());
+            
         } catch (Exception mex) {
             mex.printStackTrace();
         }
