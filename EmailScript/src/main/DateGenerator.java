@@ -63,5 +63,23 @@ public class DateGenerator {
 		}
 		return Integer.parseInt(yearString);
 	}
+	
+	public Date generateDate(String[] dateString, int flag) {
+		int month;
+		int day;
+		int year;
+		if(flag == 0) {
+			month = getMonth(dateString, 1);
+			day = getDay(dateString, 2);
+			year = getYear(dateString, 3);
+		}
+		else {
+			month = getMonth(dateString, 3);
+			day = getDay(dateString, 2);
+			year = getYear(dateString, 4);
+		}
+		Date currentDate = new Date(month, day, year);
+		return currentDate;
+	}
 
 }

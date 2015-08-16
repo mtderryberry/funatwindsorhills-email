@@ -29,9 +29,10 @@ public class ReadEmail {
 	            String content = bp.getContent().toString();
 	
 	            Email email = new Email(sender, sentDate, subject, content);
-	            Parse parser = new Parse();
-	            parser.parseEmail(email);
-	            //System.out.println(email.toString());
+	            ParseCheckIn checkInParser = new ParseCheckIn();
+	            checkInParser.parseEmail(email);
+	            ParseCheckOut checkOutParser = new ParseCheckOut();
+	            checkOutParser.parseEmail(email);
             }
             
         } catch (Exception mex) {
