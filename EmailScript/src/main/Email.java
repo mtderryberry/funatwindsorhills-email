@@ -7,7 +7,7 @@ public class Email {
 	public String dateSent;
 	public String subject;
 	
-	public Email(String sender, String dateSent, String body, String subject) {
+	public Email(String sender, String dateSent, String subject, String body) {
 		this.sender = sender;
 		this.body = body;
 		this.dateSent = dateSent;
