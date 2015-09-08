@@ -1,5 +1,7 @@
 package main;
 
+import java.util.GregorianCalendar;
+
 public class DateGenerator {
 	
 	public int getMonth(String[] monthstring, int index) {
@@ -8,40 +10,40 @@ public class DateGenerator {
 		String currentMonth = monthstring[index];
 		switch(currentMonth) {
 		case "Jan": case "January":
-			month = 1;
+			month = 0;
 			break;
 		case "Feb": case "February":
-			month = 2;
+			month = 1;
 			break;
 		case "Mar": case "March":
-			month = 3;
+			month = 2;
 			break;
 		case "Apr": case "April":
-			month = 4;
+			month = 3;
 			break;
 		case "May":
-			month = 5;
+			month = 4;
 			break;
 		case "Jun": case "June":
-			month = 6;
+			month = 5;
 			break;
 		case "Jul": case "July":
-			month = 7;
+			month = 6;
 			break;
 		case "Aug": case "August":
-			month = 8;
+			month = 7;
 			break;
 		case "Sep": case "September":
-			month = 9;
+			month = 8;
 			break;
 		case "Oct": case "October":
-			month = 10;
+			month = 9;
 			break;
 		case "Nov": case "November":
-			month = 11;
+			month = 10;
 			break;
 		case "Dec": case "December":
-			month = 12;
+			month = 11;
 			break;
 		default:
 			break;
@@ -64,7 +66,7 @@ public class DateGenerator {
 		return Integer.parseInt(yearString);
 	}
 	
-	public Date generateDate(String[] dateString, int flag) {
+	public GregorianCalendar generateDate(String[] dateString, int flag) {
 		int month;
 		int day;
 		int year;
@@ -78,7 +80,9 @@ public class DateGenerator {
 			day = getDay(dateString, 2);
 			year = getYear(dateString, 4);
 		}
-		Date currentDate = new Date(month, day, year);
+		
+		GregorianCalendar currentDate = new GregorianCalendar();
+		currentDate.set(year, month, day);
 		return currentDate;
 	}
 

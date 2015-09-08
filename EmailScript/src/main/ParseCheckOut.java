@@ -1,5 +1,8 @@
 package main;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 public class ParseCheckOut implements Parse{
 	
 	public void parseEmail(Email currentEmail) {
@@ -23,9 +26,10 @@ public class ParseCheckOut implements Parse{
 		DateGenerator gen = new DateGenerator();
 		System.out.println("Date String: "+ thirdString[1]);
 		
-		Date currentDate = gen.generateDate(dateString, flag);
+		GregorianCalendar currentDate = gen.generateDate(dateString, flag);
 		
-		System.out.println(currentDate.toString());
+		System.out.println(""+currentDate.get(Calendar.MONTH)+" "+
+				currentDate.get(Calendar.DATE)+" "+currentDate.get(Calendar.YEAR));
 	}
 
 }
